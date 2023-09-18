@@ -15,6 +15,7 @@ Bienvenue dans le R5.04-ProjInf's documentation!
    :caption: Contenu:
 
    about_me.rst
+   tasks.rst
 
 Indices and tables
 ==================
