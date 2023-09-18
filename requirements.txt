@@ -1,3 +1,5 @@
 pytest == 3.10.1
 pytest-html == 3.2.0
 pytest-mock  == 3.9.0
+sphinx
+livereload
