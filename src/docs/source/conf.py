@@ -20,6 +20,7 @@ release = 'v0'
 
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
 ]
 
 templates_path = ['_templates']
@@ -40,4 +41,8 @@ autodoc_default_options = {
     "special-members": True, # même les méthodes spéciales (__init__)
     "private-members": True, # même les entrées privées
     "member-order": "bysource", # par ordre de déclaration dans le code
+}
+# -- External Links --------------------------------------------------------------
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None)
 }
