@@ -33,7 +33,6 @@ class Task:
         """
         LOGGER.info(f"Dans le getter")
         return self.__description
-
     @property
     def state(self):
         """Propriété `state`.
@@ -55,7 +54,7 @@ class Task:
         :return: :py:obj:`None`
         :raises: :py:class:`AttributeError` : `description` non modifiable pour une tâche faite
         """
-        LOGGER.info(f"Modification de la description")
+        LOGGER.info(f"Dans setter de description")
         if self.__state:
             raise AttributeError("La description ne peut être modifiée pour une tâche faite")
         self.__description = valeur
