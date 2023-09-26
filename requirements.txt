@@ -1,5 +1,6 @@
-pytest
+pytest~=7.4.2
 pytest-html == 3.2.0
 pytest-mock  == 3.9.0
 sphinx
-livereload
+livereload~=2.6.3
+mock
