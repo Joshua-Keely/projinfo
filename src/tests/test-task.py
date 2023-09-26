@@ -1,4 +1,5 @@
 import src.tasks.task
+import pytest
 
 
 class TestTask:
@@ -22,7 +23,7 @@ class TestTask:
         """Teste l'etat par defaut"""
         tache = src.tasks.task.Task("test d'etat par defaut")
         val = tache.state
-        assert val is False
+        assert val == False
 
     def test_setter_description(self):
         """Teste le setter de `__description` d'une tâche."""
@@ -32,3 +33,12 @@ class TestTask:
         if tache.state == "à faire":
             assert val == "nouvelle description"
 
+    @pytest.mark.parametrize("etat_ini, etat_final",
+                             [
+                                 pytest.param(False, True, id="a faire->fait"),
+                                 pytest.param(True, False, id="fait->a faire")
+                             ])
+    def test_change_state(self, etat_ini, etat_final):
+        tache = src.tasks.task.Task("Un descriptif", state=etat_ini)
+        tache.change_state()
+        assert tache.state == etat_final
