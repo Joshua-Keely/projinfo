@@ -1,4 +1,7 @@
 import logging
+import datetime
+
+import tasks.task
 
 LOGGER = logging.getLogger(__name__)
 
@@ -21,6 +24,7 @@ class Task:
         """
         self.__description = description
         self.__state = state
+        self.__date = get_today()
         # Configuration de la journalisation pour l'objet
         LOGGER.info(f"Instantiation de la tâche \"{self.__description}\"")
 
@@ -33,6 +37,7 @@ class Task:
         """
         LOGGER.info(f"Dans le getter")
         return self.__description
+
     @property
     def state(self):
         """Propriété `state`.
@@ -55,15 +60,39 @@ class Task:
         :raises: :py:class:`AttributeError` : `description` non modifiable pour une tâche faite
         """
         LOGGER.info(f"Dans setter de description")
-        if self.__state:
+        if not self.__state:
+            self.__description = valeur
+        else:
             raise AttributeError("La description ne peut être modifiée pour une tâche faite")
-        self.__description = valeur
+
+    def change_state(self):
+        """Propriété `change_state`.
+        fait passer l’état de la tâche a 'fait' si la tâche était 'à faire' et
+        reciproquement (passage à 'à faire' si la tâche était faite).
+
+        :return:Etat de la tâche
+        """
+        LOGGER.info(f"Change state")
+        self.__state = not self.__state
+        return self.__state
+
+    @property
+    def date(self):
+        """renvoie la __date formaté au format "JJ/MM/AAAA
+        :return: la date de la tâche"""
+        LOGGER.info(f"Date")
+        return self.__date.strftime("%d/%m/%Y")
 
 
+def get_today():
+    """Retourne la date du jour au format AAAA-MM-JJ.
 
-
-
-
+    :return: La date du jour
+    :rtype: str
+    :see also: :py:obj:`datetime.date`
+    """
+    LOGGER.info(f"Get today")
+    return datetime.date.today()
 
 
 def main():
@@ -74,6 +103,9 @@ def main():
     tache.description = "Description"
     tache = Task("Une description")
     tache.description = "Une nouvelle description"
+    print(tache.date)
+
+
 
 if __name__ == "__main__":
     # Configuration de la journalisation
