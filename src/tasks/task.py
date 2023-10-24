@@ -28,6 +28,14 @@ class Task:
         # Configuration de la journalisation pour l'objet
         LOGGER.info(f"Instantiation de la tâche \"{self.__description}\"")
 
+    def __str__(self):
+        """Méthode spéciale `__str__`.
+
+        :return: La représentation textuelle de la tâche
+        """
+        LOGGER.info(f"Dans __str__")
+        return f"{self.__description} ({'fait' if self.__state else 'à faire'})"
+
     @property
     def description(self):
         """Propriété `description`.
