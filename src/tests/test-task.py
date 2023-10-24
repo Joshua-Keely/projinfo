@@ -3,6 +3,7 @@ import pytest
 import datetime
 from mock import mock
 
+
 class TestTask:
     """
     Tests de la classe Task.
@@ -55,4 +56,3 @@ class TestTask:
     def test_getter_date(self, mocker):
         tache = tasks.task.Task("un descriptif")
         assert tache.date == "23/08/2023"
-

@@ -3,7 +3,9 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 # -- Declaration of source root directories ----------------------------------
-import os, sys
+import os
+import sys
+
 # List of directories to be added
 sys.path.insert(0, os.path.abspath('../src/'))
 
@@ -36,11 +38,11 @@ html_static_path = ['_static']
 
 # -- Autodoc config -----------------------------------------------------------
 autodoc_default_options = {
-    "members": True, # Inclut toutes les entrées (fonctions, classes, méthodes) de la documentation
-    "undoc-members": True, # même celle non documentées
-    "special-members": True, # même les méthodes spéciales (__init__)
-    "private-members": True, # même les entrées privées
-    "member-order": "bysource", # par ordre de déclaration dans le code
+    "members": True,  # Inclut toutes les entrées (fonctions, classes, méthodes) de la documentation
+    "undoc-members": True,  # même celle non documentées
+    "special-members": True,  # même les méthodes spéciales (__init__)
+    "private-members": True,  # même les entrées privées
+    "member-order": "bysource",  # par ordre de déclaration dans le code
 }
 # -- External Links --------------------------------------------------------------
 intersphinx_mapping = {

@@ -106,7 +106,6 @@ def main():
     print(tache.date)
 
 
-
 if __name__ == "__main__":
     # Configuration de la journalisation
     logging.basicConfig(level=logging.DEBUG)
