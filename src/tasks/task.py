@@ -102,6 +102,27 @@ def get_today():
     LOGGER.info(f"Get today")
     return datetime.date.today()
 
+def to_json(self):
+    """Retourne la tâche au format JSON.
+
+    :return: La tâche au format JSON
+    :rtype: dict
+    """
+    LOGGER.info(f"To json")
+    return {"description": self.__description, "state": self.__state, "date": self.__date}
+
+def from_json(self, json):
+    """Retourne la tâche au format JSON.
+
+    :return: La tâche au format JSON
+    :rtype: dict
+    """
+    LOGGER.info(f"From json")
+    self.__description = json["description"]
+    self.__state = json["state"]
+    self.__date = json["date"]
+
+
 
 def main():
     """
